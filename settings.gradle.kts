@@ -3,11 +3,7 @@ pluginManagement {
         gradlePluginPortal()
         google()
         mavenCentral()
-    }
-    plugins {
-        id 'com.android.application' version '7.1.0-alpha08'
-        id 'com.android.library' version '7.1.0-alpha08'
-        id 'org.jetbrains.kotlin.android' version '1.5.21'
+        maven("https://plugins.gradle.org/m2/")
     }
 }
 dependencyResolutionManagement {
@@ -18,4 +14,4 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "OpenLibrary"
-include ':app'
+include(":app")
