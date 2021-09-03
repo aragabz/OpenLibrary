@@ -5,6 +5,9 @@ import org.gradle.plugin.use.PluginDependencySpec
 fun PluginDependenciesSpec.androidApplication(): PluginDependencySpec =
     id("com.android.application")
 
+fun PluginDependenciesSpec.androidLibrary(): PluginDependencySpec =
+    id("com.android.library")
+
 fun PluginDependenciesSpec.kotlinAndroid(): PluginDependencySpec =
     id("org.jetbrains.kotlin.android")
 

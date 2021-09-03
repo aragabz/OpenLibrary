@@ -37,15 +37,20 @@ android {
         }
     }
 
-    compileOptions {
-        JavaVersion.VERSION_1_8.apply {
-            sourceCompatibility = this
-            targetCompatibility = this
+    with(JavaVersion.VERSION_1_8) {
+        val javaVersion = this
+
+        // compile options
+        compileOptions {
+            sourceCompatibility = javaVersion
+            targetCompatibility = javaVersion
         }
 
-    }
-    kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_1_8.toString()
+        // kotlin options
+        kotlinOptions {
+            jvmTarget = javaVersion.toString()
+        }
+
     }
     buildFeatures {
         viewBinding = true
@@ -57,7 +62,7 @@ dependencies {
 
     implementation(Libs.Androidx.Ktx.core)
     implementation(Libs.Androidx.appCompat)
-    implementation(Libs.MATERIAL)
+    implementation(Libs.material)
     testImplementation(Libs.TestLibs.junit)
     androidTestImplementation(Libs.AndroidTestLibs.junit)
     androidTestImplementation(Libs.AndroidTestLibs.espresso)

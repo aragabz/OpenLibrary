@@ -13,6 +13,8 @@ object Libs {
         const val legacySupport = "androidx.legacy:legacy-support-v4:1.0.0"
         const val constraintLayout = "androidx.constraintlayout:constraintlayout:2.1.0"
         const val viewpager2 = "androidx.viewpager2:viewpager2:1.0.0"
+        const val swipeRefreshLayout =
+            "androidx.swiperefreshlayout:swiperefreshlayout:1.2.0-alpha01"
         const val slidingPaneLayout =
             "androidx.slidingpanelayout:slidingpanelayout:1.2.0-alpha01"
 
@@ -30,6 +32,9 @@ object Libs {
 
         // app startup
         const val appStartup = "androidx.startup:startup-runtime:1.1.0-beta01"
+
+        const val recyclerview = "androidx.recyclerview:recyclerview:1.2.1"
+        const val recyclerviewSelection = "androidx.recyclerview:recyclerview-selection:1.1.0"
 
         // region Benchmark
         object Benchmark {
@@ -64,12 +69,28 @@ object Libs {
 
         // region Lifecycle
         object Lifecycle {
-            private const val version = "2.4.0-alpha01"
+            private const val version = "2.4.0-alpha03"
 
             const val compiler = "androidx.lifecycle:lifecycle-compiler:$version"
             const val liveData = "androidx.lifecycle:lifecycle-livedata-ktx:$version"
             const val viewModel = "androidx.lifecycle:lifecycle-viewmodel-ktx:$version"
             const val runtime = "androidx.lifecycle:lifecycle-runtime-ktx:$version"
+            const val viewModelSavedState =
+                "androidx.lifecycle:lifecycle-viewmodel-savedstate:$version"
+
+            // if u use java 8
+            const val common = "androidx.lifecycle:lifecycle-common-java8:$version"
+
+
+            // optional - helpers for implementing LifecycleOwner in a Service
+            const val serviceHelper = "androidx.lifecycle:lifecycle-service:$version"
+
+            // optional - ProcessLifecycleOwner provides a lifecycle for the whole application process
+            const val process = "androidx.lifecycle:lifecycle-process:$version"
+
+            // optional - ReactiveStreams support for LiveData
+            const val reactiveStreams = "androidx.lifecycle:lifecycle-reactivestreams-ktx:$version"
+
         }
         // endregion
     }
@@ -83,6 +104,14 @@ object Libs {
         const val loggingInterceptor = "com.squareup.okhttp3:logging-interceptor:$version"
     }
     // endregion
+
+    // region Retrofit
+    object Retrofit {
+        const val retrofit = "com.squareup.retrofit2:retrofit:2.8.1"
+        const val retrofitMoshiConverter = "com.squareup.retrofit2:converter-moshi:2.6.2"
+        const val moshiKotlin = "com.squareup.moshi:moshi-kotlin:1.9.3"
+    }
+    //endregion
 
     // region Glide
     object Glide {
@@ -171,16 +200,18 @@ object Libs {
     // endregion
 
     //region General Libs
-    const val MATERIAL = "com.google.android.material:material:1.5.0-alpha02"
-    const val TIMBER = "com.jakewharton.timber:timber:${Versions.timber}"
+    const val material = "com.google.android.material:material:1.5.0-alpha02"
+    const val timber = "com.jakewharton.timber:timber:${Versions.timber}"
 
     // okio
-    const val OKIO = "com.squareup.okio:okio:${Versions.okio}"
+    const val okio = "com.squareup.okio:okio:${Versions.okio}"
 
     // lottie
-    const val LOTTIE = "com.airbnb.android:lottie:${Versions.lottie}"
-    const val GSON = "com.google.code.gson:gson:${Versions.gson}"
-    const val HAMCREST = "org.hamcrest:hamcrest-library:${Versions.hamcrest}"
+    const val lottie = "com.airbnb.android:lottie:${Versions.lottie}"
+    const val gson = "com.google.code.gson:gson:${Versions.gson}"
+    const val hamcrest = "org.hamcrest:hamcrest-library:${Versions.hamcrest}"
     //endregion
+
+    const val localization = "com.akexorcist:localization:1.2.2"
 }
 

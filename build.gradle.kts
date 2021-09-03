@@ -12,8 +12,8 @@ buildscript {
         maven("https://plugins.gradle.org/m2/")
     }
     dependencies {
-        classpath("com.android.tools.build:gradle:7.1.0-alpha10")
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:${Libs.Kotlin.version}")
+        classpath("com.android.tools.build:gradle:7.1.0-alpha11")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.30")
         classpath("androidx.benchmark:benchmark-gradle-plugin:${Libs.Androidx.Benchmark.version}")
         classpath("androidx.navigation:navigation-safe-args-gradle-plugin:${Libs.Navigation.version}")
         classpath("com.google.dagger:hilt-android-gradle-plugin:${Libs.Hilt.version}")
