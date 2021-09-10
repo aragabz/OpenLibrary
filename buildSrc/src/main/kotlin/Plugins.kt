@@ -17,6 +17,10 @@ fun PluginDependenciesSpec.kotlinKapt(): PluginDependencySpec =
 fun PluginDependenciesSpec.navigationSafeArgs(): PluginDependencySpec =
     id("androidx.navigation.safeargs.kotlin")
 
+fun PluginDependenciesSpec.daggerHilt(): PluginDependencySpec =
+    id("dagger.hilt.android.plugin")
+
+
 
 fun PluginDependenciesSpec.dependencyUpdates(): PluginDependencySpec =
     id("com.github.ben-manes.versions").version("0.39.0")

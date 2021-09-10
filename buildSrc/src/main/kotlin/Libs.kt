@@ -4,6 +4,7 @@ object Libs {
     object Kotlin {
         const val version = "1.5.30"
         const val stdlib = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$version"
+        const val reflection = "org.jetbrains.kotlin:kotlin-reflect:$version"
     }
     // endregion
 
@@ -31,7 +32,7 @@ object Libs {
         const val browser = "androidx.browser:browser:$1.0.0"
 
         // app startup
-        const val appStartup = "androidx.startup:startup-runtime:1.1.0-beta01"
+        const val appStartup = "androidx.startup:startup-runtime:1.1.0"
 
         const val recyclerview = "androidx.recyclerview:recyclerview:1.2.1"
         const val recyclerviewSelection = "androidx.recyclerview:recyclerview-selection:1.1.0"
@@ -91,6 +92,15 @@ object Libs {
             // optional - ReactiveStreams support for LiveData
             const val reactiveStreams = "androidx.lifecycle:lifecycle-reactivestreams-ktx:$version"
 
+            // reginon paging
+            object Paging {
+                private const val version = "2.1.2"
+                const val runtime =
+                    "androidx.paging:paging-runtime:$version"
+                const val rxJava2 =
+                    "androidx.paging:paging-rxjava2:$version"
+            }
+            //endregion
         }
         // endregion
     }
@@ -104,6 +114,16 @@ object Libs {
         const val loggingInterceptor = "com.squareup.okhttp3:logging-interceptor:$version"
     }
     // endregion
+
+    object CommonInterceptors {
+        private const val ok2CurlVersion = "0.7.0"
+        const val ok2curl = "com.github.mrmike:ok2curl:$ok2CurlVersion"
+
+        object Chucker {
+            const val debug = "com.github.chuckerteam.chucker:library:3.5.2"
+            const val release = "com.github.chuckerteam.chucker:library-no-op:3.5.2"
+        }
+    }
 
     // region Retrofit
     object Retrofit {

@@ -1,12 +1,13 @@
 import configuration.BuildType
-import configuration.ReleaseBuildType
 import configuration.DebugBuildType
+import configuration.ReleaseBuildType
 
 plugins {
     androidApplication()
     kotlinAndroid()
     kotlinKapt()
     navigationSafeArgs()
+    daggerHilt()
 }
 
 android {
@@ -63,7 +64,31 @@ dependencies {
     implementation(Libs.Androidx.Ktx.core)
     implementation(Libs.Androidx.appCompat)
     implementation(Libs.material)
+    implementation(Libs.Androidx.constraintLayout)
     testImplementation(Libs.TestLibs.junit)
     androidTestImplementation(Libs.AndroidTestLibs.junit)
     androidTestImplementation(Libs.AndroidTestLibs.espresso)
+    // app startup
+    implementation(Libs.Androidx.appStartup)
+    implementation(Libs.timber)
+    // dagger hilt
+    implementation(Libs.Hilt.android)
+    kapt(Libs.Hilt.compiler)
+    // retrofit
+    implementation(Libs.Retrofit.retrofit)
+    implementation(Libs.Retrofit.moshiKotlin)
+    implementation(Libs.Retrofit.retrofitMoshiConverter)
+
+    // okhttp
+    implementation(Libs.Okhttp.okhttpCore)
+    implementation(Libs.Okhttp.loggingInterceptor)
+    // chucker
+    debugImplementation(Libs.CommonInterceptors.Chucker.debug)
+    releaseImplementation(Libs.CommonInterceptors.Chucker.release)
+    // ok2curl
+    implementation(Libs.CommonInterceptors.ok2curl)
+
+    // coroutines
+    implementation(Libs.Coroutines.coroutinesCore)
+    testImplementation(Libs.Coroutines.test)
 }
