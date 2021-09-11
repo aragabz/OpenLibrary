@@ -10,9 +10,11 @@ rootProject.also {
 // include application modules
 include(
     ":app",
-    ":common:views"
+    ":core",
+    ":data",
+    ":domain",
+    ":model"
 )
-
 
 pluginManagement {
     repositories {
@@ -39,4 +41,3 @@ dependencyResolutionManagement {
 //        }
 //    }
 }
-

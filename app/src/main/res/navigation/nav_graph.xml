@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.ragabz.openlibrary.ui.search.SearchFragment"
+        android:label="fragment_search"
+        tools:layout="@layout/fragment_search">
+        <action
+            android:id="@+id/action_searchFragment_to_documentDetailsFragment"
+            app:destination="@id/documentDetailsFragment">
+            <argument
+                android:name="document"
+                app:argType="com.ragabz.model.Doc" />
+        </action>
+    </fragment>
+    <fragment
+        android:id="@+id/documentDetailsFragment"
+        android:name="com.ragabz.openlibrary.ui.details.DocumentDetailsFragment"
+        android:label="fragment_document_details"
+        tools:layout="@layout/fragment_document_details" />
+</navigation>

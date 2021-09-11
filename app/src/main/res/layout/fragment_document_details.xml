@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="fragment"
+            type="com.ragabz.openlibrary.ui.details.DocumentDetailsFragment" />
+
+        <variable
+            name="viewModel"
+            type="com.ragabz.openlibrary.ui.details.DocumentDetailsViewModel" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="0dp"
+                android:layout_height="150dp"
+                android:scaleType="fitXY"
+                app:imageUrl="@{viewModel.coverObservableField}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/button"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/marginLarge"
+                android:layout_marginTop="@dimen/marginLarge"
+                android:drawableStart="@drawable/left_arrow"
+                android:drawablePadding="@dimen/marginLarge"
+                android:onClick="@{v-> fragment.onBackPressed()}"
+                android:text="@string/back"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/marginLarge"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:onClick="@{v-> fragment.searchWithTitle()}"
+                android:text="@{viewModel.titleObservableField}"
+                android:textSize="@dimen/large_font"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
+            <TextView
+                android:id="@+id/textView_author"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:onClick="@{v-> fragment.searchWithAuthor()}"
+                android:text="@{viewModel.authorObservableField}"
+                android:textSize="@dimen/medium_font"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/textView_title"
+                app:layout_constraintStart_toStartOf="@+id/textView_title"
+                app:layout_constraintTop_toBottomOf="@+id/textView_title" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/marginLarge"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="@dimen/marginLarge"
+                android:layout_marginBottom="@dimen/marginLarge"
+                app:fragment="@{fragment}"
+                app:isbnList="@{viewModel.isbnList}"
+                app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView_author"
+                app:spanCount="2" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+</layout>

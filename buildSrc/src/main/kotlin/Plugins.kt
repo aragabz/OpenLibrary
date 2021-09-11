@@ -14,8 +14,16 @@ fun PluginDependenciesSpec.kotlinAndroid(): PluginDependencySpec =
 fun PluginDependenciesSpec.kotlinKapt(): PluginDependencySpec =
     kotlin("kapt")
 
+fun PluginDependenciesSpec.kotlinParcelize(): PluginDependencySpec =
+    id("kotlin-parcelize")
+
+
 fun PluginDependenciesSpec.navigationSafeArgs(): PluginDependencySpec =
     id("androidx.navigation.safeargs.kotlin")
+
+fun PluginDependenciesSpec.daggerHilt(): PluginDependencySpec =
+    id("dagger.hilt.android.plugin")
+
 
 
 fun PluginDependenciesSpec.dependencyUpdates(): PluginDependencySpec =

@@ -4,6 +4,7 @@ object Libs {
     object Kotlin {
         const val version = "1.5.30"
         const val stdlib = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$version"
+        const val reflection = "org.jetbrains.kotlin:kotlin-reflect:$version"
     }
     // endregion
 
@@ -31,7 +32,7 @@ object Libs {
         const val browser = "androidx.browser:browser:$1.0.0"
 
         // app startup
-        const val appStartup = "androidx.startup:startup-runtime:1.1.0-beta01"
+        const val appStartup = "androidx.startup:startup-runtime:1.1.0"
 
         const val recyclerview = "androidx.recyclerview:recyclerview:1.2.1"
         const val recyclerviewSelection = "androidx.recyclerview:recyclerview-selection:1.1.0"
@@ -78,9 +79,8 @@ object Libs {
             const val viewModelSavedState =
                 "androidx.lifecycle:lifecycle-viewmodel-savedstate:$version"
 
-            // if u use java 8
-            const val common = "androidx.lifecycle:lifecycle-common-java8:$version"
-
+            // alternately - if using Java8, use the following instead of lifecycle-compiler
+            const val commonJava8 = "androidx.lifecycle:lifecycle-common-java8:$version"
 
             // optional - helpers for implementing LifecycleOwner in a Service
             const val serviceHelper = "androidx.lifecycle:lifecycle-service:$version"
@@ -91,6 +91,15 @@ object Libs {
             // optional - ReactiveStreams support for LiveData
             const val reactiveStreams = "androidx.lifecycle:lifecycle-reactivestreams-ktx:$version"
 
+            // region paging
+            object Paging {
+                private const val version = "2.1.2"
+                const val runtime =
+                    "androidx.paging:paging-runtime:$version"
+                const val rxJava2 =
+                    "androidx.paging:paging-rxjava2:$version"
+            }
+            //endregion
         }
         // endregion
     }
@@ -105,11 +114,23 @@ object Libs {
     }
     // endregion
 
+    object CommonInterceptors {
+        private const val ok2CurlVersion = "0.7.0"
+        const val ok2curl = "com.github.mrmike:ok2curl:$ok2CurlVersion"
+
+        object Chucker {
+            const val debug = "com.github.chuckerteam.chucker:library:3.5.2"
+            const val release = "com.github.chuckerteam.chucker:library-no-op:3.5.2"
+        }
+    }
+
     // region Retrofit
     object Retrofit {
         const val retrofit = "com.squareup.retrofit2:retrofit:2.8.1"
         const val retrofitMoshiConverter = "com.squareup.retrofit2:converter-moshi:2.6.2"
         const val moshiKotlin = "com.squareup.moshi:moshi-kotlin:1.9.3"
+        const val gsonConverter =
+            "com.squareup.retrofit2:converter-gson:2.8.1"
     }
     //endregion
 
@@ -128,15 +149,31 @@ object Libs {
 
         const val coroutinesCore = "org.jetbrains.kotlinx:kotlinx-coroutines-core:$version"
         const val test = "org.jetbrains.kotlinx:kotlinx-coroutines-test:$version"
+        const val android =
+            "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutines}"
     }
     // endregion
 
     // region Navigation
     object Navigation {
         const val version = "2.4.0-alpha07"
+
+        // fragment ktx
         const val fragmentKtx =
             "androidx.navigation:navigation-fragment-ktx:$version"
+
+        // ui ktx
         const val uiKtx = "androidx.navigation:navigation-ui-ktx:$version"
+
+        // Feature module Support
+        const val dynamicFeatureFragment =
+            "androidx.navigation:navigation-dynamic-features-fragment:$version"
+
+        // Testing Navigation
+        const val navigationTesting = "androidx.navigation:navigation-testing:$version"
+
+        // Jetpack Compose Integration
+        const val navigationCompose = "androidx.navigation:navigation-compose:2.4.0-alpha08"
     }
     // endregion
 
@@ -195,7 +232,7 @@ object Libs {
     // region Android Test Libs
     object AndroidTestLibs {
         const val junit = "androidx.test.ext:junit:1.1.1"
-        const val espresso = "androidx.test.espresso:espresso-core:3.5.0-alpha07"
+        const val espresso = "androidx.test.espresso:espresso-core:3.4.0"
     }
     // endregion
 

@@ -1,12 +1,14 @@
 import configuration.BuildType
-import configuration.ReleaseBuildType
 import configuration.DebugBuildType
+import configuration.ReleaseBuildType
 
 plugins {
     androidApplication()
     kotlinAndroid()
     kotlinKapt()
+    kotlinParcelize()
     navigationSafeArgs()
+    daggerHilt()
 }
 
 android {
@@ -60,10 +62,53 @@ android {
 
 dependencies {
 
+    api(project(":core"))
+    api(project(":data"))
+    api(project(":domain"))
     implementation(Libs.Androidx.Ktx.core)
     implementation(Libs.Androidx.appCompat)
     implementation(Libs.material)
+    implementation(Libs.Androidx.constraintLayout)
     testImplementation(Libs.TestLibs.junit)
     androidTestImplementation(Libs.AndroidTestLibs.junit)
     androidTestImplementation(Libs.AndroidTestLibs.espresso)
+
+    implementation(Libs.Androidx.Ktx.activity)
+    implementation(Libs.Androidx.Ktx.fragment)
+
+    // lifecycle
+    implementation(Libs.Androidx.Lifecycle.viewModel)
+    implementation(Libs.Androidx.Lifecycle.viewModelSavedState)
+    implementation(Libs.Androidx.Lifecycle.runtime)
+    implementation(Libs.Androidx.Lifecycle.liveData)
+    implementation(Libs.Androidx.Lifecycle.reactiveStreams)
+
+    implementation(Libs.Androidx.Lifecycle.commonJava8)
+
+    implementation(Libs.Navigation.fragmentKtx)
+    implementation(Libs.Navigation.uiKtx)
+
+    // app startup
+    implementation(Libs.Androidx.appStartup)
+    implementation(Libs.timber)
+    // dagger hilt
+    implementation(Libs.Hilt.android)
+    kapt(Libs.Hilt.compiler)
+    // retrofit
+    implementation(Libs.Retrofit.retrofit)
+    implementation(Libs.Retrofit.moshiKotlin)
+    implementation(Libs.Retrofit.retrofitMoshiConverter)
+
+    // okhttp
+    implementation(Libs.Okhttp.okhttpCore)
+    implementation(Libs.Okhttp.loggingInterceptor)
+    // chucker
+    debugImplementation(Libs.CommonInterceptors.Chucker.debug)
+    releaseImplementation(Libs.CommonInterceptors.Chucker.release)
+    // ok2curl
+    implementation(Libs.CommonInterceptors.ok2curl)
+
+    // coroutines
+    implementation(Libs.Coroutines.coroutinesCore)
+    testImplementation(Libs.Coroutines.test)
 }
