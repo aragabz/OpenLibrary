@@ -6,6 +6,7 @@ plugins {
     androidApplication()
     kotlinAndroid()
     kotlinKapt()
+    kotlinParcelize()
     navigationSafeArgs()
     daggerHilt()
 }
@@ -61,6 +62,9 @@ android {
 
 dependencies {
 
+    api(project(":core"))
+    api(project(":data"))
+    api(project(":domain"))
     implementation(Libs.Androidx.Ktx.core)
     implementation(Libs.Androidx.appCompat)
     implementation(Libs.material)
@@ -68,6 +72,22 @@ dependencies {
     testImplementation(Libs.TestLibs.junit)
     androidTestImplementation(Libs.AndroidTestLibs.junit)
     androidTestImplementation(Libs.AndroidTestLibs.espresso)
+
+    implementation(Libs.Androidx.Ktx.activity)
+    implementation(Libs.Androidx.Ktx.fragment)
+
+    // lifecycle
+    implementation(Libs.Androidx.Lifecycle.viewModel)
+    implementation(Libs.Androidx.Lifecycle.viewModelSavedState)
+    implementation(Libs.Androidx.Lifecycle.runtime)
+    implementation(Libs.Androidx.Lifecycle.liveData)
+    implementation(Libs.Androidx.Lifecycle.reactiveStreams)
+
+    implementation(Libs.Androidx.Lifecycle.commonJava8)
+
+    implementation(Libs.Navigation.fragmentKtx)
+    implementation(Libs.Navigation.uiKtx)
+
     // app startup
     implementation(Libs.Androidx.appStartup)
     implementation(Libs.timber)

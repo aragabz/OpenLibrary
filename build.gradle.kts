@@ -19,6 +19,10 @@ buildscript {
         classpath("com.google.dagger:hilt-android-gradle-plugin:${Libs.Hilt.version}")
     }
 }
-tasks.withType<Delete> {
+// tasks.withType<Delete> {
+//    delete(rootProject.buildDir)
+// }
+
+tasks.register("clean", Delete::class) {
     delete(rootProject.buildDir)
 }

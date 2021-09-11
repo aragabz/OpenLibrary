@@ -1,8 +1,5 @@
 package configuration
 
-import org.gradle.api.plugins.BasePluginExtension
-import java.io.File
-
 interface BuildType {
 
     companion object {
@@ -12,6 +9,7 @@ interface BuildType {
 
     val isMinifyEnabled: Boolean
     val isTestCoverageEnabled: Boolean
+    val baseUrl: String
 }
 
 object DebugBuildType : BuildType {
@@ -21,9 +19,15 @@ object DebugBuildType : BuildType {
 
     const val applicationIdSuffix = ".debug"
     const val versionNameSuffix = "-DEBUG"
+
+    override val baseUrl: String
+        get() = "\"http://openlibrary.org/\""
 }
 
 object ReleaseBuildType : BuildType {
     override val isMinifyEnabled: Boolean = true
     override val isTestCoverageEnabled: Boolean = false
+
+    override val baseUrl: String
+        get() = "\"http://openlibrary.org/\""
 }
